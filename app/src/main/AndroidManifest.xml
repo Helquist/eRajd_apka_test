@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.erajd">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_erajd"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_erajd_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoggedActivity"
+            android:label="@string/title_activity_drawer"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".LoggedActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoggedActivity" />
+        </activity>
+        <activity
+            android:name=".ScheduleActivity"
+            android:label="@string/plan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChallengeActivity"
+            android:label="@string/challenges"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FootballActivity"
+            android:label="@string/football"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".VolleyballActivity"
+            android:label="@string/volleyball"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ContactActivity"
+            android:label="@string/contact_info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LocationActivity"
+            android:label="@string/place_info"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>
