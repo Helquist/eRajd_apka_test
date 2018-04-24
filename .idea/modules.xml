@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Dell\Documents\GitHub\eRajd_apka_v2\.idea\modules\app\app.iml" filepath="C:\Users\Dell\Documents\GitHub\eRajd_apka_v2\.idea\modules\app\app.iml" />
-      <module fileurl="file://C:\Users\Dell\Documents\GitHub\eRajd_apka_v2\.idea\modules\eRajd.iml" filepath="C:\Users\Dell\Documents\GitHub\eRajd_apka_v2\.idea\modules\eRajd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eRajd.iml" filepath="$PROJECT_DIR$/.idea/modules/eRajd.iml" />
       <module fileurl="file://$PROJECT_DIR$/eRajd_apka_v2.iml" filepath="$PROJECT_DIR$/eRajd_apka_v2.iml" />
     </modules>
   </component>
