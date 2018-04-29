@@ -1,6 +1,9 @@
 package com.example.erajd;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +14,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static String FACEBOOK_URL = "https://www.facebook.com/WRSSWIEiT/";
+    public static String FACEBOOK_PAGE_ID = "WRSSWIEiT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +34,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void logoButton(View view) {
-        Intent intent = new Intent(this, LoggedActivity.class);
-        startActivity(intent);
+    public String getFacebookPageURL(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+
+            boolean activated =  packageManager.getApplicationInfo("com.facebook.katana", 0).enabled;
+            if(activated){
+                if ((versionCode >= 3002850)) {
+                    return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+                } else {
+                    return "fb://page/" + FACEBOOK_PAGE_ID;
+                }
+            }else{
+                return FACEBOOK_URL;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return FACEBOOK_URL;
+        }
+    }
+
+    public void goToFacebookPage(View view) {
+        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+        String facebookUrl = getFacebookPageURL(this);
+        facebookIntent.setData(Uri.parse(facebookUrl));
+        startActivity(facebookIntent);
     }
 
     boolean doubleBackToExitPressedOnce = false;    //do funkcji ponizej
