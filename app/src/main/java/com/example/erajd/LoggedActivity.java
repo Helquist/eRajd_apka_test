@@ -19,6 +19,29 @@ import android.widget.ImageView;
 public class LoggedActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    // Po dwukrotnym nacisnieciu wstecz w głównej aktywności chce zeby wychodzil, w innej aktywnosci niz logged,po nacisnieciu jeden raz zeby wracal do logged, do logoutu osobny przycisk//
+
+    /*boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        android.widget.Toast.makeText(this, "Please click BACK again to exit", android.widget.Toast.LENGTH_SHORT).show();
+
+        new android.os.Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +81,31 @@ public class LoggedActivity extends AppCompatActivity
         });
     }
 
+    boolean doubleBackToExitPressedOnce = false;    //do funkcji ponizej
+
     @Override
     public void onBackPressed() {
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else{
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+            this.doubleBackToExitPressedOnce = true;
+            android.widget.Toast.makeText(this, "Naciśnij WRÓĆ ponownie aby wyjść", android.widget.Toast.LENGTH_SHORT).show();
+
+
+
+            new android.os.Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 1000);
         }
     }
 
@@ -127,5 +168,7 @@ public class LoggedActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 }

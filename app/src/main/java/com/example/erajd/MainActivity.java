@@ -1,8 +1,11 @@
 package com.example.erajd;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -32,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    boolean doubleBackToExitPressedOnce = false;    //do funkcji ponizej
 
+    @Override
+    public void onBackPressed() {
 
+        this.doubleBackToExitPressedOnce = true;
+        android.widget.Toast.makeText(this, "Please click BACK again to exit", android.widget.Toast.LENGTH_SHORT).show();
+
+        new android.os.Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 1000);
+    }
 }
