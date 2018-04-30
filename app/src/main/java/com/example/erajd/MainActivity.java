@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static String FACEBOOK_URL = "https://www.facebook.com/WRSSWIEiT/";
     public static String FACEBOOK_PAGE_ID = "WRSSWIEiT";
+    boolean doubleBackToExitPressedOnce = false;    //do wychodzenia z aplikacji
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         facebookIntent.setData(Uri.parse(facebookUrl));
         startActivity(facebookIntent);
     }
-
-    boolean doubleBackToExitPressedOnce = false;    //do funkcji ponizej
 
     @Override
     public void onBackPressed() {
